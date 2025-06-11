@@ -114,6 +114,7 @@
 
 <audio id="xSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 <audio id="oSound" src="https://www.soundjay.com/button/beep-10.wav" preload="auto"></audio>
+<audio id="selectSound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
 
 <script>
   let board = Array(10).fill(' ');
@@ -140,6 +141,7 @@
 
   function startGame(letter) {
     if (letter) {
+        document.getElementById('selectSound').play();
       playerLetter = letter;
       computerLetter = (letter === 'X') ? 'O' : 'X';
     }
