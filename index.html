@@ -3,120 +3,51 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tic Tac Toe</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #e0eafc, #cfdef3);
-      text-align: center;
-      padding: 20px;
-    }
-    h1 { margin-top: 20px; color: #333; }
+  <title>Tic Tac Toe Expert</title>
+<link rel="stylesheet" href="style.css">
 
-    .choice, .mode {
-      margin: 15px;
-    }
-
-    button {
-      padding: 10px 20px;
-      margin: 5px;
-      border: none;
-      border-radius: 10px;
-      background-color: #4CAF50;
-      color: white;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      background-color: #45a049;
-    }
-
-    .board {
-      display: grid;
-      grid-template-columns: repeat(3, 100px);
-      grid-gap: 10px;
-      justify-content: center;
-      margin: 20px auto;
-    }
-
-    .cell {
-      width: 100px;
-      height: 100px;
-      font-size: 2.5em;
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.2s ease;
-    }
-
-    .cell:hover {
-      transform: scale(1.05);
-      background: #f0f8ff;
-    }
-
-    .scoreboard {
-      font-size: 1.2em;
-      margin-top: 15px;
-    }
-
-    #message {
-      margin-top: 10px;
-      font-weight: bold;
-    }
-
-    #restartBtn {
-      margin-top: 15px;
-      display: none;
-    }
-
-    @media (max-width: 500px) {
-      .board {
-        grid-template-columns: repeat(3, 80px);
-      }
-      .cell {
-        width: 80px;
-        height: 80px;
-        font-size: 2em;
-      }
-    }
-  </style>
 </head>
 <body>
+  <h1>Tic Tac Toe</h1>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
 
-<h1>Tic Tac Toe</h1>]
+  <button id="musicToggle" onclick="toggleMusic()">🔇 Tắt nhạc</button>
 
 <div class="mode">
-  Chế độ: 
-  <button onclick="selectMode('1P')">Chơi với máy</button>
-  <button onclick="selectMode('2P')">2 người chơi</button>
+  <label class="switch-label">
+    <span>Chơi với máy</span>
+    <label class="switch">
+      <input type="checkbox" id="modeToggle" onchange="toggleMode()" />
+      <span class="slider"></span>
+    </label>
+    <span>Expert Mode</span>
+  </label>
 </div>
 
-<div class="choice" id="letterChoice" style="display:none;">
-  Bạn chọn: 
-  <button onclick="startGame('X')">X</button>
-  <button onclick="startGame('O')">O</button>
-</div>
+  <div class="choice" id="letterChoice" style="display:none;">
+    Bạn chọn: 
+    <button onclick="startGame('X')">X</button>
+    <button onclick="startGame('O')">O</button>
+  </div>
 
-<div class="board" id="board"></div>
+  <div class="board" id="board"></div>
+<!--
+  <div class="scoreboard">
+    👤 Bạn: <span id="playerScore">0</span> | 💻 Máy/Người 2: <span id="opponentScore">0</span> | 🤝 Hòa: <span id="draws">0</span>
+  </div>
+-->
+  <p id="message"></p>
+  <button id="restartBtn" onclick="resetGame()">Chơi lại</button>
 
-<div class="scoreboard">
-  👤 Bạn: <span id="playerScore">0</span> | 💻 Máy/Người 2: <span id="opponentScore">0</span> | 🤝 Hòa: <span id="draws">0</span>
-</div>
 
-<p id="message"></p>
-<button id="restartBtn" onclick="resetGame()">Chơi lại</button>
 
-<audio id="xSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
-<audio id="oSound" src="https://www.soundjay.com/button/beep-10.wav" preload="auto"></audio>
-<audio id="selectSound" src="https://www.soundjay.com/button/sounds/button-16.mp3" preload="auto"></audio>
 
-<script src="script.js"></script>
+  <!-- Main game script -->
+  <script src="game.js"></script>
 
+          <footer>
+            <p>© 2025 Tic_Tac_Toe Designed by TrungHieu.</p>
+            <p>Công cụ này chỉ mang tính chất giải trí</p>
+        </footer
 </body>
 </html>
