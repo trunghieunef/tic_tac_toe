@@ -3,51 +3,64 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tic Tac Toe Expert</title>
+  <title>Tic Tac Toe</title>
 <link rel="stylesheet" href="style.css">
 
 </head>
 <body>
   <h1>Tic Tac Toe</h1>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-
-  <button id="musicToggle" onclick="toggleMusic()">🔇 Tắt nhạc</button>
-
-<div class="mode">
-  <label class="switch-label">
-    <span>Chơi với máy</span>
-    <label class="switch">
-      <input type="checkbox" id="modeToggle" onchange="toggleMode()" />
-      <span class="slider"></span>
-    </label>
-    <span>Expert Mode</span>
-  </label>
+  <div class="scoreboard" id="scoreboard" style="display: none;">
+  <div class="score">Bạn: <span id="playerScore">0</span></div>
+  <div class="score">Máy: <span id="opponentScore">0</span></div>
+  <div class="score">Hòa: <span id="draws">0</span></div>
 </div>
 
-  <div class="choice" id="letterChoice" style="display:none;">
+
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&display=swap" rel="stylesheet">
+
+<button id="settingsToggle">
+  <span id="gearIcon">⚙️</span>
+</button>
+
+
+<div id="settingsPanel" class="settings-panel" style="display: none;">
+  <h3>Tuỳ chọn</h3>
+</div>
+
+  <div class="choice" id="letterChoice" >
     Bạn chọn: 
     <button onclick="startGame('X')">X</button>
     <button onclick="startGame('O')">O</button>
   </div>
 
-  <div class="board" id="board"></div>
-<!--
-  <div class="scoreboard">
-    👤 Bạn: <span id="playerScore">0</span> | 💻 Máy/Người 2: <span id="opponentScore">0</span> | 🤝 Hòa: <span id="draws">0</span>
-  </div>
--->
-  <p id="message"></p>
-  <button id="restartBtn" onclick="resetGame()">Chơi lại</button>
+<div class="choice-container">
 
+  <!-- Phần chọn chế độ -->
+<div class="mode-choice" id="modeChoice">
+  <h3>Chế độ:</h3>
+  <label><input type="radio" name="mode" value="normal" checked> Bình thường</label>
+  <label><input type="radio" name="mode" value="hardcore"> Hardcore</label>
+</div>
+
+
+</div>
+
+
+  <div class="board" id="board"></div>
+
+  <p id="message"></p>
+<button id="restartBtn" onclick="resetGame()">Chơi lại</button>
+<button id="resetAllBtn" onclick="resetToStart()" style="display: none;">Đặt lại</button>
 
 
 
   <!-- Main game script -->
   <script src="game.js"></script>
 
-          <footer>
-            <p>© 2025 Tic_Tac_Toe Designed by TrungHieu.</p>
-            <p>Công cụ này chỉ mang tính chất giải trí</p>
-        </footer
+  <footer>
+    <p>© 2025 Tic_Tac_Toe Designed by TrungHieu.</p>
+    <p>Công cụ này chỉ mang tính chất giải trí</p>
+  </footer>
+  
 </body>
 </html>
