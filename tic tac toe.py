@@ -1,5 +1,7 @@
+# tic tac toe game in Python
+# This is a simple implementation of the Tic Tac Toe game
 import random
- 
+
 def drawBoard(board):
     #Thực hiện in ra bàn cờ
     print(board[7] + '|' + board[8] + '|' + board[9])
