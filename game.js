@@ -66,7 +66,6 @@ function startGame(letter) {
   }
 }
 
-
 function drawBoard() {
   board.innerHTML = '';
   gameBoard.forEach((cell, index) => {
@@ -77,7 +76,6 @@ function drawBoard() {
     board.appendChild(cellDiv);
   });
 }
-
 
 function handleMove(index) {
   if (isGameOver || gameBoard[index]) return;
@@ -133,7 +131,6 @@ function computerMove() {
 
   currentPlayer = playerLetter;
 }
-
 
 function getBestMove(letter) {
   const opponent = letter === 'X' ? 'O' : 'X';
@@ -255,7 +252,6 @@ function minimax(board, depth, isMaximizing, player) {
   return bestScore;
 }
 
-
 function resetToStart() {
   // Reset all game variables to their initial state
   currentPlayer = 'X';
@@ -285,6 +281,37 @@ function resetToStart() {
 
   updateScore();
 }
+
+const darkModeToggle = document.getElementById('darkModeToggle');
+const musicToggle = document.getElementById('musicToggle');
+let backgroundMusic = new Audio('sound/theme/meow.mp3');
+
+backgroundMusic.loop = true;
+backgroundMusic.volume = 0.6 ;
+
+// Phát nhạc khi bắt đầu
+window.addEventListener('DOMContentLoaded', () => {
+  musicToggle.checked = true;            // Cập nhật UI toggle
+  backgroundMusic.play().catch(err => {
+    // Một số trình duyệt chặn autoplay – bạn có thể xử lý ở đây nếu cần
+    console.warn('Trình duyệt chặn autoplay nhạc:', err);
+  });
+});
+
+// Dark Mode Toggle
+darkModeToggle.addEventListener('change', function () {
+  document.body.classList.toggle('dark-mode', this.checked);
+});
+
+// Music Toggle
+musicToggle.addEventListener('change', function () {
+  if (this.checked) {
+    backgroundMusic.play();
+  } else {
+    backgroundMusic.pause();
+  }
+});
+
 
 
 
